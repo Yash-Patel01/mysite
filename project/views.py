@@ -128,7 +128,7 @@ def register1(request,id11):
         Registration = registration(user_id=user_id,username=username,first_name=first_name,last_name=last_name,email=email,is_staff=is_staff,course_id=course_id,status=status)
         Registration.save()
         
-        return render(request,"register1`.html")
+        return render(request,"register1.html")
     else:
         print('course_id :'+id2)
         return render(request,'register1.html',{'course_id':id2})
