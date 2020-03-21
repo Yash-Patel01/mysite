@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action="search" method="POST">
+   {% csrf_token %}
+    <label for="fname">First name:</label><br>
+    <input type="text" name="name"><br>
+    <input type="submit" value="Search">
+</form> 
+{% for i in search %}
+    {{i.username}}<br>
+    {{i.first_name}}<br>
+    {{i.last_name}}<br>
+    {{i.email}}<br>
+{% endfor %} 
+
+</body>
+</html>
