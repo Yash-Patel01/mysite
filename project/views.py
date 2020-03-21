@@ -112,7 +112,7 @@ def register1(request,id11):
     id2 = id11
     user1 = ''
 
-    if  request.method == 'POST':  
+    if  request.method == 'POST':
         id1 = request.POST['id']
         course_id = id2
         status = True
