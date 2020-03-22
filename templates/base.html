@@ -19,8 +19,8 @@
         {% if request.user.is_superuser %}
         <li><a href="addblog">addblog</a></li>
         <li><a href="message">Message</a></li>
-        <li><a href="search">Search</a></li>
-        <li><a href="">test</a></li>
+        {% comment %} <li><a href="search">Search</a></li> {% endcomment %}
+        <li><a href="Dictionary">Search word</a></li>
         {% endif %}
     </ul>
 </nav>

@@ -14,6 +14,8 @@ urlpatterns = [
     path('course1/<id>', views.course1, name='course1'),
     path('search',views.search,name='search'),
     path('course1/enroll/register/<id11>',views.register1,name='course1/register'),
+    path('Dictionary',views.dictionary,name='Dictionary'),
+
     # re_path('register',views.register1,name='register')
 
     

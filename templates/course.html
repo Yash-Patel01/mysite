@@ -190,12 +190,20 @@
                     <div class="widget tags-widget">
                         <form action="enroll/register/{{cour.id}}" >
                             {% csrf_token %}
-                            {% if user.is_authenticated and user.id == user_id and cour.id == course_id %}
-                            <h3> YOU ARE ALREADY ENROLLED
-                            {% else %}
+                            {% for i1 in count1 %}
+                            {% if user_id11 == '' %}
                             <h3>Enroll in Course</h3>
                             <button class="tag" href="#">Enroll</button>
+                            {% else %}
+                            {% for i in registration1 %}
+                            {% if user.is_authenticated and user.id == i.user_id and cour.id == i.course_id %}
+                            <h3> YOU ARE ALREADY ENROLLED
+                            {% else %}
+
                             {% endif %}                            
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
                         </form>
                     </div>
                     <!-- search widget -->
