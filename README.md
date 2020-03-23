@@ -1,6 +1,8 @@
 # mysite
 
-first of all install requirments.txt file 
+first of all install requirments.txt file by 
+
+pip commands
 
 you have to use Postgresql for database server.
 
