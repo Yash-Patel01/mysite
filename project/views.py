@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 import datetime
 import urbandictionary as ud
+from mysite.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
 
 def index(request):
     # word = str(input('Enter the word :'))
@@ -135,7 +137,7 @@ def register1(request, id11):
     id1 = ''
     id2 = id11
     user1 = ''
-
+    email = ''
     if request.method == 'POST':
         id1 = request.POST['id']
         course_id = id2
@@ -151,7 +153,24 @@ def register1(request, id11):
         if not registration.objects.filter(user_id=user_id, username=username, first_name=first_name,last_name=last_name, email=email, is_staff=is_staff, course_id=course_id, status=status).exists():
             Registration = registration(user_id=user_id, username=username, first_name=first_name,last_name=last_name, email=email, is_staff=is_staff, course_id=course_id, status=status)
             Registration.save()
+        current_user = request.user
+        registration1 = registration.objects.filter(user_id=current_user.id)
+        for i in registration1:
+            email = i.email
+        subject = 'Welcome to Edusite'
+        message = '''Dear Student,
 
+        
+        I am Yash Kathrotiya. You are Enrolled in Edusite Course , Please check the Enrollment status in course page . hope you will enjoye the course tutorial which will be given by Edusite ...
+        
+        ** DO NOT REPLY ON THIS EMAIL **
+
+        '''
+        
+        recepient = email
+        send_mail(subject,message, EMAIL_HOST_USER, [recepient],fail_silently = False)
+        print("****************************** SUCCESS ******************************")
+            # return render(request, 'index.html')
         return render(request, "register1.html")
     else:
         print('course_id :'+id2)

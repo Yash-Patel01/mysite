@@ -28,8 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+#DataFlair
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nikpatel7048@gmail.com'
+EMAIL_HOST_PASSWORD = 'Yash@63550'
+EMAIL_PORT = 587
 
+# Application definition
 INSTALLED_APPS = [
     'project.apps.ProjectConfig',
     'django.contrib.admin',
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'sucscribe',
 ]
 
 MIDDLEWARE = [
