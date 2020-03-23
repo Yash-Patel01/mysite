@@ -99,15 +99,15 @@
 <body>
 <section>
   <!--for demo wrap-->
-  <h1>messages from user</h1>
+  <h1><font color='B00000'>messages from user</font></h1>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Subject</th>
-          <th>message</th>
+          <th><font color='000033'>Name</font></th>
+          <th><font color='000033'>Email</font></th>
+          <th><font color='000033'>Subject</font></th>
+          <th><font color='000033'>message</font></th>
           <th></th>
         </tr>
       </thead>
@@ -120,10 +120,10 @@
         
         <tr>
           <form action="message" method="POST">
-            <td>{{mess.name}}</td>
-            <td><a href={{mess.email}}>{{mess.email}}</a></td>
-            <td>{{mess.subject}}</td>
-            <td>{{mess.message}}</td>
+            <td><font size="5" color="black"><b><b>{{mess.name}}</b></b></font></td>
+            <td><font size="5" color="black"><b><a href={{mess.email}}>{{mess.email}}</a></font></td>
+            <td><font size="5" color="black"><b>{{mess.subject}}</font></td>
+            <td><font size="5" color="black"><b>{{mess.message}}</font></td>
             <input type="hidden" name="id" value="{{mess.id}}"/>
             {% csrf_token %}
             <td><button type="submit" class="btn btn-outline-danger">Delete</button>

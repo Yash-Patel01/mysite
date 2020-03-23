@@ -1,4 +1,6 @@
-{% load static %}
+{% extends 'base.html'%}
+{% load static %} 
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,29 +59,11 @@
 					</button>
                 <!-- /Mobile toggle -->
             </div>
-
+            {% endblock %}
             <!-- Navigation -->
-            <nav id="nav">
-                <ul class="main-menu nav navbar-nav navbar-right">
-                    <li class="active"><a href="">Home</a></li>
-                    <li><a href="contect1">Contact</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a href="">Hello {{user.first_name}}</a></li>
-                    <li><a href="accounts/logout1">logout</a></li>
-                    {% else %}
-                    <li><a href="accounts/register">Registration</a></li>
-                    <li><a href="accounts/login">Login</a></li>
-                    {% endif %}
-                    <li><a href="admin">Admin</a></li>
-                    {% if request.user.is_superuser %}
-                    <li><a href="">addblog</a></li>
-                    <li><a href="message">Message</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-            <!-- /Navigation -->
 
+            <!-- /Navigation -->
+            {% block content1 %}
         </div>
     </header>
     <!-- /Header -->
@@ -307,8 +291,8 @@
                     </div>
                 </div>
                 <!-- footer logo -->
-
                 <!-- footer nav -->
+
                 <div class="col-md-6">
                     <ul class="footer-nav">
                         <li><a href="index.html">Home</a></li>
@@ -371,3 +355,4 @@
 </body>
 
 </html>
+{% endblock %}

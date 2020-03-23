@@ -158,17 +158,26 @@ def register1(request, id11):
         for i in registration1:
             email = i.email
         subject = 'Welcome to Edusite'
-        message = '''Dear Student,
+        course_details = course.objects.filter(id=id2)
+        for i in course_details:
+            title = i.title
+            name = i.name 
+            start_date = i.startdate
+            end_date = i.enddate
+        message ='''Dear Subscriber,
 
         
         I am Yash Kathrotiya. You are Enrolled in Edusite Course , Please check the Enrollment status in course page . hope you will enjoye the course tutorial which will be given by Edusite ...
-        
-        ** DO NOT REPLY ON THIS EMAIL **
 
         '''
-        
+        message1 = message + '\n\t Name of the course is : '+ title 
+        message2 = message1 + '\n\t Name of the Faculty is : '+ name
+        message4 = message2 + '\n\t Starting Date is : '+ str(start_date)
+        message5 = message4 + '\n\t Ending Date is :  '+str(end_date)
+        message3 = message5 + " \n\n\t\t***** DO NOT REPLY ON THIS EMAIL*****"
         recepient = email
-        send_mail(subject,message, EMAIL_HOST_USER, [recepient],fail_silently = False)
+        # print(message3)
+        send_mail(subject,message3, EMAIL_HOST_USER, [recepient],fail_silently = False)
         print("****************************** SUCCESS ******************************")
             # return render(request, 'index.html')
         return render(request, "register1.html")
@@ -180,8 +189,9 @@ def register1(request, id11):
 
 def dictionary(request):
     yash =''
+    word =''
     if request.method == 'POST':
         word = request.POST['word']
         yash =ud.define(word)
         
-    return render(request,'dictionary.html',{'word':yash})
+    return render(request,'dictionary.html',{'word':yash,'word1':word})
