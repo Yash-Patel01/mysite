@@ -8,6 +8,8 @@
         <li class="/"><a href="">Home</a></li>
         <li><a href="contect1">Contact</a></li>
         <li><a href="blog">Blog</a></li>
+        <li><a href="Dictionary">Search word</a></li>
+        <li><a href="admin">Admin</a></li>
         {% if user.is_authenticated %}
         <li><a href="">Hello {{user.first_name}}</a></li>
         <li><a href="accounts/logout2">logout</a></li>
@@ -15,12 +17,10 @@
         <li><a href="accounts/register">Registration</a></li>
         <li><a href="accounts/login">Login</a></li>
         {% endif %}
-        <li><a href="admin">Admin</a></li>
         {% if request.user.is_superuser %}
         <li><a href="addblog">addblog</a></li>
         <li><a href="message">Message</a></li>
         {% comment %} <li><a href="search">Search</a></li> {% endcomment %}
-        <li><a href="Dictionary">Search word</a></li>
         {% endif %}
     </ul>
 </nav>

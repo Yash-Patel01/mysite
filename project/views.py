@@ -19,10 +19,6 @@ def index(request):
 
 def blog(request):
     blogg = blog1.objects.all()
-    for bl in blogg:
-        print(bl.name)
-        print(bl.title)
-        print(bl.blog)
     return render(request, "blog.html", {'blogg': blogg})
 
 
@@ -36,17 +32,12 @@ def course1(request, id):
     user_id11 = ''
     user_id1 = ''
     count1 = 'y'
-    print('length :')
-    print(len(count1))
-    print('yash ')
     current_user = request.user
     registration1 = registration.objects.filter(user_id=current_user.id, course_id=id)
     registration2 = registration.objects.all()
     for i in registration2:
         user_id2 = i.user_id
         course_id2 = i.course_id
-        print(user_id2)
-        print(course_id2)
     for i in registration1:
         user_id11 = i.user_id
         # course_id1  = i.course_id
