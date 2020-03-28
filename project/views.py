@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import course, registration, contact, blog1, comment2, coursecomment
 from django.contrib.auth.models import User
-# Create your views here.
 from django.http import HttpResponse
 import datetime
 import urbandictionary as ud
