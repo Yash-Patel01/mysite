@@ -12,7 +12,7 @@ then Enter the following commands in your virtual enviernment
 
 python manage.py collectstatic
 
-python manage.py makemigratons
+python manage.py makemigrations
 
 python manage.py migrate
 
